@@ -121,7 +121,7 @@ struct matrix
 		return matrix(temp,newRows,newCols);
 	}
 
-	matrix operator/(matrix H) // element multiplication
+	matrix operator&(matrix H) // element multiplication
 	{
 		int newRows = row;
 		int newCols = col;
@@ -132,8 +132,7 @@ struct matrix
 		double** temp = initialize(newRows,newCols);
 
 		//RÄKNA!
-		double t;
-		int i,j,k;
+		int i,j;
 		for (i=0;i<newRows;++i)
 		{
 			for(j=0;j<newCols;++j)
@@ -177,13 +176,13 @@ int main(int argc, char **argv)
 	iss >> Nstates;
 	iss >> index;
 
-	matrix L = q/B.getCol(index).transpose();
+	matrix L = q&B.getCol(index).transpose();
 	//L.print();
 	for(int i=1;i<Nstates;++i)
 	{
 		iss >> index;
 		//matrix T = B.getCol(index).transpose();
-		L = (L*A)/(B.getCol(index).transpose());
+		L = (L*A)&(B.getCol(index).transpose());
 		//L.print();
 	}
 
