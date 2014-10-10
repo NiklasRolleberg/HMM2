@@ -190,8 +190,8 @@ int main(int argc, char **argv)
 	double m = 0;
 	for(int i=0;i<L.col;++i)
             m += L.get(0,i);
-    double t = round(m*pow(10,6))/pow(10,6);
-    std::cout << t << std::endl;
+	double t = round(m*pow(10,6))/pow(10,6);
+	std::cout << t << std::endl;
 	return 0;
 }
 
